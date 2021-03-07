@@ -13,6 +13,7 @@ import world.bentobox.bentobox.api.panels.PanelItem;
 import world.bentobox.bentobox.api.panels.builders.PanelBuilder;
 import world.bentobox.bentobox.api.panels.builders.PanelItemBuilder;
 import world.bentobox.bentobox.api.user.User;
+import world.bentobox.bentobox.hooks.LangUtilsHook;
 import world.bentobox.biomes.panels.GuiUtils;
 import world.bentobox.biomes.utils.Utils;
 
@@ -200,7 +201,7 @@ public class SelectBiomeGUI
     private PanelItem createBiomeIcon(Biome biome)
     {
         return new PanelItemBuilder().
-                name(biome.name()).
+                name(LangUtilsHook.getBiomeName(biome, user)).
                 description(Collections.emptyList()).
                 icon(Material.MAP).
                 clickHandler((panel, user1, clickType, slot) -> {

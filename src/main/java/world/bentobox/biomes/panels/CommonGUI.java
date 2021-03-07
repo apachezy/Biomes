@@ -15,6 +15,7 @@ import world.bentobox.bentobox.api.commands.CompositeCommand;
 import world.bentobox.bentobox.api.panels.PanelItem;
 import world.bentobox.bentobox.api.panels.builders.PanelItemBuilder;
 import world.bentobox.bentobox.api.user.User;
+import world.bentobox.bentobox.hooks.LangUtilsHook;
 import world.bentobox.biomes.BiomesAddon;
 import world.bentobox.biomes.database.objects.BiomesObject;
 
@@ -240,7 +241,7 @@ public abstract class CommonGUI
 				{    // This adds biomes original name.
 					result.add(this.user
 						.getTranslation("biomes.gui.biomes-description.biome-name",
-							VALUE_TAG, biomesObject.getBiome().name()));
+							VALUE_TAG, LangUtilsHook.getBiomeName(biomesObject.getBiome(), user)));
 					break;
 				}
 				case REQUIRED_MONEY:

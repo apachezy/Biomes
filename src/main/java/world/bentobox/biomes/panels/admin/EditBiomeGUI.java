@@ -24,6 +24,7 @@ import world.bentobox.bentobox.api.panels.PanelItem;
 import world.bentobox.bentobox.api.panels.builders.PanelBuilder;
 import world.bentobox.bentobox.api.panels.builders.PanelItemBuilder;
 import world.bentobox.bentobox.api.user.User;
+import world.bentobox.bentobox.hooks.LangUtilsHook;
 import world.bentobox.biomes.BiomesAddon;
 import world.bentobox.biomes.database.objects.BiomesObject;
 import world.bentobox.biomes.panels.CommonGUI;
@@ -124,7 +125,7 @@ public class EditBiomeGUI extends CommonGUI
             itemBuilder.name(this.user.getTranslation("biomes.gui.buttons.admin.change-biome"));
             description.add(this.user.getTranslation("biomes.gui.descriptions.admin.change-biome"));
             description.add(this.user.getTranslation(CURRENT_VALUE,
-                    VALUE, this.biome.getBiome().name()));
+                    VALUE, LangUtilsHook.getBiomeName(this.biome.getBiome(), user)));
             itemBuilder.description(GuiUtils.stringSplit(description, this.addon.getSettings().getLoreLineLength()));
 
             itemBuilder.icon(Material.WATER_BUCKET);
